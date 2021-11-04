@@ -18,8 +18,8 @@ function App() {
             </svg>;
 
   return (
-    <div>
-      <h1>Tabs Demo</h1>
+    <div className="text-sm w-screen h-screen bg-dark text-white-9EA">
+      <h1 className="text-2xl">Tabs Demo</h1>
         <Tabs >
           <p label={film}>
             This is record, <em>Amazing</em>!
@@ -29,6 +29,11 @@ function App() {
           </div>
           <div label={info}>
             This is infomation, <em>excellent</em>!
+            <p>Ở đây chả có gì cả</p>
+            <p>Ở đây chả có gì cả</p>
+            <p>Ở đây chả có gì cả</p>
+            <p>Ở đây chả có gì cả</p>
+            <p>Ở đây chả có gì cả</p>
           </div>
           <div label={bell}>
             That is notifications <em>For more information <a href="#">click here</a></em>!

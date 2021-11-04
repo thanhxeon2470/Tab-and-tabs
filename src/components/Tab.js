@@ -1,42 +1,34 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class Tab extends Component {
-  static propTypes = {
-    activeTab: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
-  };
+function Tab(props){
 
-  onClick = () => {
-    const { label, onClick } = this.props;
+  const onClick = () => {
+    const { label, onClick } = props;
     onClick(label);
   }
 
-  render() {
-    const {
-      onClick,
-      props: {
-        activeTab,
-        label,
-      },
-    } = this;
-    
-    let className = 'inline-block -mt-0 mr-px -mb-px ml-px py-2 px-3 border-black border-b-2';
+  const {
+    activeTab,
+    label,
+  } = props;
+  let className = (activeTab === label)?'inline-block -mt-0 mr-px -mb-px ml-px py-2 px-3 border-b-2 text-orange-941 border-orange-941 bg-transparent'
+                                       :'inline-block -mt-0 mr-px -mb-px ml-px py-2 px-3 text-gray-DAF border-gray-DAF border-b-2 bg-transparent';
 
-    if (activeTab === label) {
-      className += ' text-yellow-500 bg-transparent border-yellow-500 border-b-2';
-    }
 
-    return (
-      <li
-        className={className}
-        onClick={onClick}
-      >
-        {label}
-      </li>
-    );
-  }
+  return (
+    <li
+      className={className}
+      onClick={onClick}
+    >
+      {label}
+    </li>
+  );
 }
+Tab.propTypes = {
+  activeTab: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
 
 export default Tab;
